@@ -1,0 +1,144 @@
+Metadata-Version: 2.1
+Name: fitrequest
+Version: 0.2.1
+Summary: Python class that allow to create client for REST API with dynamic code generation
+Home-page: https://skillcorner.com/
+Author: Skillcorner
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: defusedxml (>=0.7.1,<0.8.0)
+Requires-Dist: makefun (>=1.15,<2.0)
+Requires-Dist: orjson (>=3.9.10,<4.0.0)
+Requires-Dist: pydantic (>=2.5.2,<3.0.0)
+Requires-Dist: requests (>=2.9,<3.0)
+Project-URL: Documentation, https://fitrequest.readthedocs.io/en/latest/
+Project-URL: Repository, https://gitlab.com/public-corner/fitrequest
+Description-Content-Type: text/markdown
+
+# FitRequest
+
+This module allows you to write REST api client with automatic code generation.
+
+[![Skillcorner](https://img.shields.io/badge/skillcorner-LimeGreen.svg?labelColor=grey&style=plastic&logo=data:image/svg%2bxml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB2ZXJzaW9uPSIxLjEiCiAgIGlkPSJzdmcyIgogICB3aWR0aD0iMjM3LjMzMzMzIgogICBoZWlnaHQ9IjI2Ni42NjY2NiIKICAgdmlld0JveD0iMCAwIDIzNy4zMzMzMyAyNjYuNjY2NjYiCiAgIHNvZGlwb2RpOmRvY25hbWU9IlNraWxsY29ybmVyIE5lb24gR3JlZW4gSWNvbi5lcHMiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGRlZnMKICAgICBpZD0iZGVmczYiIC8+CiAgPHNvZGlwb2RpOm5hbWVkdmlldwogICAgIGlkPSJuYW1lZHZpZXc0IgogICAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgICBib3JkZXJjb2xvcj0iIzAwMDAwMCIKICAgICBib3JkZXJvcGFjaXR5PSIwLjI1IgogICAgIGlua3NjYXBlOnNob3dwYWdlc2hhZG93PSIyIgogICAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwLjAiCiAgICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgICBpbmtzY2FwZTpkZXNrY29sb3I9IiNkMWQxZDEiIC8+CiAgPGcKICAgICBpZD0iZzgiCiAgICAgaW5rc2NhcGU6Z3JvdXBtb2RlPSJsYXllciIKICAgICBpbmtzY2FwZTpsYWJlbD0iaW5rX2V4dF9YWFhYWFgiCiAgICAgdHJhbnNmb3JtPSJtYXRyaXgoMS4zMzMzMzMzLDAsMCwtMS4zMzMzMzMzLDAsMjY2LjY2NjY3KSI+CiAgICA8ZwogICAgICAgaWQ9ImcxMCIKICAgICAgIHRyYW5zZm9ybT0ic2NhbGUoMC4xKSI+CiAgICAgIDxwYXRoCiAgICAgICAgIGQ9Ik0gMCwwIFYgNDAzLjg1MiBIIDE0NDMuMjMgTCA4OTAsOTU3LjI1IDY1MS42NzYsNzE4LjgyOCA2Ni4wODU5LDEzMDQuNTQgYyAtMjkuMzk4NCwyOS41MyAtNDYuODI0Miw3MS42MiAtNDYuODI0MiwxMTIuNzEgbCAtMC43MTA5LDExMSBjIDAsMzA3Ljk4IDE5NC44MjAyLDQ3MS43NSA1NDkuNDMzMiw0NzEuNzUgSCAxNzgwIFYgMTU5Ni4wOSBIIDMzMi45OCBMIDg5MCwxMDM4Ljg0IGwgMjM4LjMzLDIzOC40OCA1ODUuNTgsLTU4NS43NjkgYyAyOS4yOCwtMjkuMjg5IDQ2Ljg5LC03MS4zOTEgNDYuODksLTExMi43MjMgViA0NzEuNzUgQyAxNzYwLjgsMTYzLjc3IDE1NzMuNjgsMCAxMjE1LjE2LDAgSCAwIgogICAgICAgICBzdHlsZT0iZmlsbDojMzNmZjZiO2ZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpub256ZXJvO3N0cm9rZTpub25lIgogICAgICAgICBpZD0icGF0aDEyIiAvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+Cg==)](https://skillcorner.com/)
+[![Coverage](https://img.shields.io/gitlab/pipeline-coverage/public-corner/fitrequest?branch=main)](https://public-corner.gitlab.io/fitrequest/coverage/)
+[![Build](https://img.shields.io/gitlab/pipeline-status/public-corner/fitrequest?branch=main)](https://gitlab.com/public-corner/fitrequest/-/pipelines/latest?ref=main)
+[![PyPI - Version](https://img.shields.io/pypi/v/fitrequest.svg)](https://pypi.python.org/pypi/fitrequest)
+[![Versions](https://img.shields.io/badge/python-3.8%20%7C%203.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue)](https://fitrequest.readthedocs.io/en/latest/)
+[![License](https://img.shields.io/gitlab/license/public-corner/fitrequest)](https://gitlab.com/public-corner/fitrequest/-/blob/main/LICENSE.md)
+
+Example of implementation:  [SkillCorner Python client](https://gitlab.com/public-corner/fitrequest) for [SkillCorner API](https://www.skillcorner.com/api/docs).
+
+## Help
+
+See [documentation](https://fitrequest.readthedocs.io/en/latest/) for more details.
+
+## Installation
+
+```bash
+pip install fitrequest
+```
+
+## A simple example
+
+```python
+from fitrequest.client import FitRequest
+
+
+class RestApiClient(FitRequest):
+    base_url = "http://base_api_url"
+    base_client_name="rest_api"
+    _docstring_template = 'GET request on endpoint: {endpoint}\nDocs URL anchor: http://base_api_url/docs/{docs_url_anchor}'
+    _methods_binding = [
+        {
+            'name': 'get_item',
+            'endpoint': '/items/{}',
+            'docs_url_anchor': 'items/items_list',
+            'resource_name': 'item_id',
+        }
+    ]
+```
+
+This is a simple definition of a subclass of FitRequest object. By instanciating this class, we can do the following:
+```python
+my_client = RestApiClient()
+response = my_client.get_item(item_id=3)
+```
+
+`response` variable will hold the value of the JSON response of the following HTTP request:
+```http
+GET http://base_api_url/items/3
+```
+
+### Subclass definition
+
+#### MethodDetails and methods_binding
+
+`MethodDetails` is a dataclass that holds the following attributes:
+- `name`: the name of the method that will be created in the subclass of FitRequest
+- `endpoint`: the endpoint of the request
+- `docstring`: the docstring of the method that will be created in the subclass of FitRequest
+- `exec_method`: the name of the method that will be executed to retrieve the response
+- `extra_params`: the list of named arguments to add to the method signature
+- `raise_for_status`: wether to raise exception for response status code >= 400 and < 600
+- `response_key`: the key of the JSON response that will be returned by the method
+- `resource_name`: the name of the arg that will be used in the definition of the python method and sent as a path or query parameter in the request
+
+`_methods_binding` is almost a list of `MethodDetails` (as dict) that will be used to create the methods in the subclass of FitRequest.
+
+The methods can be extended with a docstring template in which you can use any other method attribute.
+You can also have all the methods starting with 'get' duplicated as a save method starting with 'get_and_save' taking a filepath argument and dumping the data into a file.
+
+For the moment, the generation of methods supports only one query or path parameters. If an endpoint requires more variables in its definition, you will need to actually write the method.
+For example, it is not possible to send a request to the following endpoint with the current version of FitRequest:
+```http
+GET http://base_api_url/path/to/resource/{resource_id}/subresource/{subresource_id}
+```
+It will be a topic for a future release.
+
+#### _build_final_url method
+
+This method is used to build the final url of the request.
+Sometimes, you may need to add some extra information in the url before making the query. For example, you may need to add a token in the url.
+Here is a simple example:
+``` python
+    def _build_final_url(self, endpoint: str, **kwargs) -> str:
+            return f'{self.base_url}{endpoint}?token={self.token}'
+```
+
+### Authentication
+
+#### Basic authentication
+
+Basic authentication is supported by FitRequest. You just need to override the following method to your subclass of FitRequest:
+```python
+from requests.auth import HTTPBasicAuth
+
+    def _authenticate(self) -> HTTPBasicAuth:
+        return HTTPBasicAuth(self.username, self.password)
+```
+
+This will set the auth attribute of the request's session.
+
+#### Header based authentication
+
+Some API requires extra headers to be set in the request.
+If you need to do so, you will have to override the session property in your subclass of FitRequest:
+
+```python
+from requests import Session
+
+    @property
+    def session(self) -> Session:
+        session = super().session
+        session.headers['APIKey'] = self.api_key
+        return session
+```
+
+## Contact
+You can contact Skillcorner Team at: support@skillcorner.com.
+

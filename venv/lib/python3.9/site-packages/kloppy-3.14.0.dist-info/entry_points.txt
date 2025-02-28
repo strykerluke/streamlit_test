@@ -1,0 +1,2 @@
+[console_scripts]
+kloppy-query = kloppy.cmdline:run_query

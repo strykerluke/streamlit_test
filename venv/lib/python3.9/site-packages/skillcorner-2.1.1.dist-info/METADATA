@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: skillcorner
+Version: 2.1.1
+Summary: Python SDK for Skillcorner API
+Home-page: https://skillcorner.com/
+Author: Skillcorner
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Requires-Dist: fitrequest (==0.2.1)
+Requires-Dist: orjson (>=3.9.10,<4.0.0)
+Project-URL: Documentation, https://skillcorner.readthedocs.io/en/latest/
+Project-URL: Repository, https://gitlab.com/public-corner/skillcorner
+Description-Content-Type: text/markdown
+
+# Skillcorner
+
+[![Skillcorner](https://img.shields.io/badge/skillcorner-LimeGreen.svg?labelColor=grey&style=plastic&logo=data:image/svg%2bxml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gQ3JlYXRlZCB3aXRoIElua3NjYXBlIChodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy8pIC0tPgoKPHN2ZwogICB2ZXJzaW9uPSIxLjEiCiAgIGlkPSJzdmcyIgogICB3aWR0aD0iMjM3LjMzMzMzIgogICBoZWlnaHQ9IjI2Ni42NjY2NiIKICAgdmlld0JveD0iMCAwIDIzNy4zMzMzMyAyNjYuNjY2NjYiCiAgIHNvZGlwb2RpOmRvY25hbWU9IlNraWxsY29ybmVyIE5lb24gR3JlZW4gSWNvbi5lcHMiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIKICAgeG1sbnM6c3ZnPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgPGRlZnMKICAgICBpZD0iZGVmczYiIC8+CiAgPHNvZGlwb2RpOm5hbWVkdmlldwogICAgIGlkPSJuYW1lZHZpZXc0IgogICAgIHBhZ2Vjb2xvcj0iI2ZmZmZmZiIKICAgICBib3JkZXJjb2xvcj0iIzAwMDAwMCIKICAgICBib3JkZXJvcGFjaXR5PSIwLjI1IgogICAgIGlua3NjYXBlOnNob3dwYWdlc2hhZG93PSIyIgogICAgIGlua3NjYXBlOnBhZ2VvcGFjaXR5PSIwLjAiCiAgICAgaW5rc2NhcGU6cGFnZWNoZWNrZXJib2FyZD0iMCIKICAgICBpbmtzY2FwZTpkZXNrY29sb3I9IiNkMWQxZDEiIC8+CiAgPGcKICAgICBpZD0iZzgiCiAgICAgaW5rc2NhcGU6Z3JvdXBtb2RlPSJsYXllciIKICAgICBpbmtzY2FwZTpsYWJlbD0iaW5rX2V4dF9YWFhYWFgiCiAgICAgdHJhbnNmb3JtPSJtYXRyaXgoMS4zMzMzMzMzLDAsMCwtMS4zMzMzMzMzLDAsMjY2LjY2NjY3KSI+CiAgICA8ZwogICAgICAgaWQ9ImcxMCIKICAgICAgIHRyYW5zZm9ybT0ic2NhbGUoMC4xKSI+CiAgICAgIDxwYXRoCiAgICAgICAgIGQ9Ik0gMCwwIFYgNDAzLjg1MiBIIDE0NDMuMjMgTCA4OTAsOTU3LjI1IDY1MS42NzYsNzE4LjgyOCA2Ni4wODU5LDEzMDQuNTQgYyAtMjkuMzk4NCwyOS41MyAtNDYuODI0Miw3MS42MiAtNDYuODI0MiwxMTIuNzEgbCAtMC43MTA5LDExMSBjIDAsMzA3Ljk4IDE5NC44MjAyLDQ3MS43NSA1NDkuNDMzMiw0NzEuNzUgSCAxNzgwIFYgMTU5Ni4wOSBIIDMzMi45OCBMIDg5MCwxMDM4Ljg0IGwgMjM4LjMzLDIzOC40OCA1ODUuNTgsLTU4NS43NjkgYyAyOS4yOCwtMjkuMjg5IDQ2Ljg5LC03MS4zOTEgNDYuODksLTExMi43MjMgViA0NzEuNzUgQyAxNzYwLjgsMTYzLjc3IDE1NzMuNjgsMCAxMjE1LjE2LDAgSCAwIgogICAgICAgICBzdHlsZT0iZmlsbDojMzNmZjZiO2ZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpub256ZXJvO3N0cm9rZTpub25lIgogICAgICAgICBpZD0icGF0aDEyIiAvPgogICAgPC9nPgogIDwvZz4KPC9zdmc+Cg==)](https://skillcorner.com/)
+[![Coverage](https://img.shields.io/gitlab/pipeline-coverage/public-corner/skillcorner?branch=main)](https://public-corner.gitlab.io/skillcorner/coverage/)
+[![Build](https://img.shields.io/gitlab/pipeline-status/public-corner/skillcorner?branch=main)](https://gitlab.com/public-corner/skillcorner/-/pipelines/latest?ref=main)
+[![PyPI - Version](https://img.shields.io/pypi/v/skillcorner.svg)](https://pypi.python.org/pypi/skillcorner)
+[![Versions](https://img.shields.io/badge/python-3.8%20%7C%203.9%20%7C%203.10%20%7C%203.11%20%7C%203.12-blue)](https://skillcorner.readthedocs.io/en/latest/)
+[![License](https://img.shields.io/gitlab/license/public-corner/skillcorner)](https://gitlab.com/public-corner/skillcorner/-/blob/main/LICENSE.md)
+
+Python sdk for [SkillCorner API](https://www.skillcorner.com/api/docs).
+
+Powered by [fitrequest](https://gitlab.com/public-corner/fitrequest).
+
+## Help
+
+See [documentation](https://skillcorner.readthedocs.io/en/latest/) for more details.
+
+## Installation
+
+Install using `pip install -U skillcorner`.
+See the [installation](https://skillcorner.readthedocs.io/en/latest/getting_started.html#installation) section in the documentation.
+
+## A Simple Example
+See the [examples](https://skillcorner.readthedocs.io/en/latest/getting_started.html#examples) section in the documentation.
+```py
+from skillcorner.client import SkillcornerClient
+
+client = SkillcornerClient(<SKILLCORNER_USERNAME>, <SKILLCORNER_PASSWORD>)
+
+teams = client.get_teams()
+```
+
+## Contact
+You can contact Skillcorner Team at: support@skillcorner.com.
+
