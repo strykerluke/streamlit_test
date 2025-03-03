@@ -6,7 +6,8 @@ import matplotlib.pyplot as plt
 #%%
 # Title of the app
 st.title("Simple Streamlit Dashboard")
-
+params = st.query_params
+st.write(f"Query Params:{params}")
 # Sidebar input
 st.sidebar.header("User Input")
 n = st.sidebar.slider("Number of data points", 10, 100, 50)
